@@ -1,0 +1,5 @@
+export { default as MainContainer }  from './Main/MainContainer'
+export { default as AboutContainer }  from './About/AboutContainer'
+export { default as PostContainer }  from './Post/PostContainer'
+export { default as NewsContainer }  from './News/NewsContainer'
+export { default as HomeContainer }  from './Home/HomeContainer'
