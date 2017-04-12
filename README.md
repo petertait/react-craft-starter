@@ -25,7 +25,7 @@ docker run --name craftcms \
 	-e CRAFT_DATABASE_NAME=craft \
 	--link database \
 	-p 8080:80 \
-	-d blackpepper/craftcms
+	-d petertait/react-craft-starter
 ```
 
 Visit http://localhost:8080/admin to create a site.
