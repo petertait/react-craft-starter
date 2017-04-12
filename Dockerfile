@@ -19,21 +19,19 @@ ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
 # ADD https://download.buildwithcraft.com/craft/$CRAFT_VERSION/$CRAFT_VERSION.$CRAFT_BUILD/$CRAFT_ZIP /tmp/$CRAFT_ZIP
 ADD https://github.com/craftcms/cms/archive/3.0.0-beta.10.zip /tmp/$CRAFT_ZIP
 
-RUN unzip -q /tmp/$CRAFT_ZIP -d /var/www/ \
-	&& rm /tmp/$CRAFT_ZIP \
+RUN unzip -q tmp/$CRAFT_ZIP -d / \
+	&& rm tmp/$CRAFT_ZIP \
 	# && mv /var/www/public/* /var/www/html/ \
 	# && mv /var/www/html/htaccess /var/www/html/.htaccess \
 	# && rmdir /var/www/public
 
 # Allow Craft to be configured with environment variables
-ADD config/db.php config/general.php /var/www/craft/config/
+ADD config/db.php config/general.php craft/config/
 
 RUN chown -R www-data:www-data \
-	/var/www/craft/app/ \
-	/var/www/craft/config/ \
-	/var/www/craft/storage/
-
-VOLUME /var/www/html
+	craft/app/ \
+	craft/config/ \
+	craft/storage/
 
 ENV CRAFT_DATABASE_HOST=localhost \
 	CRAFT_DATABASE_PORT=3306 \
